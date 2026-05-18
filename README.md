@@ -59,7 +59,18 @@ npm install -g @anthropic-ai/claude-code
 
 ### 2. 编辑或新增 `~/.claude/settings.json`
 
-内容如下，设 `17234` 为自己指定的**某个任意端口**，后面要用：
+内容如下，
+
+```json
+{
+    "env":{
+        "HTTP_PROXY": "http://127.0.0.1:17234",
+        "HTTPS_PROXY": "http://127.0.0.1:17234"
+    }
+}
+```
+
+设 `17234` 为自己指定的**某个任意端口**，后面要用：
 
 ![alt text](image-1.png)
 
@@ -122,6 +133,12 @@ claude login
    ```
 
 3. vscode 连接远程服务器，进入项目目录，vscode 右侧点击图标打开 Claude Code ~
+
+Tip：后续不想使用时只需关闭本地 Clash 或在本地终端输入
+
+```bash
+exit
+```
 
 ## License
 
