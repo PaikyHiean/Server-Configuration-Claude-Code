@@ -1,4 +1,6 @@
-# 1. 注册账户 📝
+# 手把手教你25min速通：从注册到远程服务器配置原生Claude Code
+
+## 1. 注册账户 📝
 
 Claude 官网：<https://claude.com/product/claude-code>
 
@@ -6,48 +8,48 @@ Claude 官网：<https://claude.com/product/claude-code>
 
 ![alt text](image.png)
 
-# 2. 购买 Claude Pro 💳
+## 2. 购买 Claude Pro 💳
 
 <https://upclaude.com/>
 
-# 3. 连接上服务器后，开始配置（建议在 vscode 上）⚙️
+## 3. 连接上服务器后，开始配置（建议在 vscode 上）⚙️
 
-## 1. 安装 Claude Code，依次执行以下命令 📦
+### 1. 安装 Claude Code，依次执行以下命令 📦
 
-### 1. 安装 nvm（不需要 root 权限）🔧
+#### 1. 安装 nvm（不需要 root 权限）🔧
 
 ```bash
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
 ```
 
-### 2. 加载 nvm 🔄
+#### 2. 加载 nvm 🔄
 
 ```bash
 source ~/.bashrc
 ```
 
-### 3. 用 nvm 安装 Node.js（自带 npm）📥
+#### 3. 用 nvm 安装 Node.js（自带 npm）📥
 
 ```bash
 nvm install --lts
 ```
 
-### 4. 确认安装成功 ✅
+#### 4. 确认安装成功 ✅
 
 ```bash
 node -v
 npm -v
 ```
 
-### 5. 安装 Claude Code 🤖
+#### 5. 安装 Claude Code 🤖
 
 ```bash
 npm install -g @anthropic-ai/claude-code
 ```
 
-## 2. 确保成功登录的准备（依然连接着服务器，建议在 vscode 上）🔑
+### 2. 确保成功登录的准备（依然连接着服务器，建议在 vscode 上）🔑
 
-### 1. 打开 `~/.claude.json` 📂
+#### 1. 打开 `~/.claude.json` 📂
 
 在大括号内末尾补充（用于**跳过 login 禁令**）：
 
@@ -57,7 +59,7 @@ npm install -g @anthropic-ai/claude-code
 
 注意**逗号和保存**。
 
-### 2. 编辑或新增 `~/.claude/settings.json` 📝
+#### 2. 编辑或新增 `~/.claude/settings.json` 📝
 
 内容如下，
 
@@ -80,7 +82,7 @@ npm install -g @anthropic-ai/claude-code
 Always reply in Chinese.
 ```
 
-### 3. 通过 SSH 隧道把本地 Clash（或其他梯子）的代理端口转发到远程服务器上，使得能在远程服务器上连接 Claude Code 🚇
+#### 3. 通过 SSH 隧道把本地 Clash（或其他梯子）的代理端口转发到远程服务器上，使得能在远程服务器上连接 Claude Code 🚇
 
 启动**本地** Clash。
 
@@ -100,7 +102,7 @@ ssh -R 17234:127.0.0.1:7890 your_name@远程服务器地址
 
 输入服务器密码后，远程服务器就能借助本地 Clash 科学上网**连接上 Claude Code** ~
 
-# 4. 正式登录 🚀
+## 4. 正式登录 🚀
 
 在前面的准备后，确认**本地 Clash 启动**，且执行了代理**端口转发**，用 vscode 连接上**远程服务器**，在**远程终端**执行：
 
@@ -112,7 +114,7 @@ claude login
 
 ![alt text](image-5.png)
 
-# 5. 最后一步 🎨
+## 5. 最后一步 🎨
 
 在 vscode 上安装 Claude Code 官方扩展：**Claude Code for VS Code**。
 
@@ -120,7 +122,7 @@ claude login
 
 ![alt text](image-3.png)
 
-# 6. 总结：后续在服务器上使用 Claude Code 的流程 📋
+## 6. 总结：后续在服务器上使用 Claude Code 的流程 📋
 
 以下流程执行顺序不固定 ~
 
@@ -139,7 +141,11 @@ claude login
 ```bash
 exit
 ```
+若遇到远程连接不上的问题，如图：
 
-## License 📜
+![alt text](image-6.png)
+
+则需要重新统一"17234"端口设定，改为如"18234"，重试即可
+### License 📜
 
 This project is licensed under the MIT License - see [LICENSE](LICENSE).
